@@ -13,10 +13,15 @@ namespace BankApp
             myFirstAccount.AccountType = "Checking";
             myFirstAccount.EmailAdress = "test@test.com";
             myFirstAccount.Deposit(123456);
-
-            var mySecondAcount = new Account();
-            mySecondAcount.AccountNumber = 45678;
-            mySecondAcount.AccountName = "My savings";
+            //print out and see the changes
+            // + concanitation process THIS IS not a good way to printout use string formating instead of it.
+            // Console.WriteLine(myFirstAccount.AccountNumber + " " + myFirstAccount.EmailAdress + " " + myFirstAccount.AccountName);
+            Console.WriteLine($"AN:{myFirstAccount.AccountNumber}, Name :{ myFirstAccount.AccountName}, Email:{myFirstAccount.EmailAdress}, AccountType : {myFirstAccount.AccountType}, Balance: {myFirstAccount.Balance}, CD:{myFirstAccount.CreatedDate}");
+           
+            var mySecondAccount = new Account();
+            mySecondAccount.AccountNumber = 45678;
+            mySecondAccount.AccountName = "My savings";
+            Console.WriteLine($"AN:{mySecondAccount.AccountNumber}, Name :{mySecondAccount.AccountName}, Email:{mySecondAccount.EmailAdress}, AccountType : {mySecondAccount.AccountType}, Balance: {mySecondAccount.Balance}, CD:{mySecondAccount.CreatedDate}");
 
         }
     }
