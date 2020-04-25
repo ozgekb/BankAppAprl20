@@ -30,7 +30,7 @@ namespace BankApp
             //print out and see the changes
             // + concanitation process THIS IS not a good way to printout use string formating instead of it.
             // Console.WriteLine(myFirstAccount.AccountNumber + " " + myFirstAccount.EmailAdress + " " + myFirstAccount.AccountName);
-            Console.WriteLine($"AN:{myFirstAccount.AccountNumber}, Name :{ myFirstAccount.AccountName}, Email:{myFirstAccount.EmailAdress}, AccountType : {myFirstAccount.AccountType}, Balance: {myFirstAccount.Balance:C}, CD:{myFirstAccount.CreatedDate}");
+           // Console.WriteLine($"AN:{myFirstAccount.AccountNumber}, Name :{ myFirstAccount.AccountName}, Email:{myFirstAccount.EmailAdress}, AccountType : {myFirstAccount.AccountType}, Balance: {myFirstAccount.Balance:C}, CD:{myFirstAccount.CreatedDate}");
 
 
 
@@ -40,7 +40,7 @@ namespace BankApp
             //mySecondAccount.AccountName = "My savings";
             var mySecondAccount = Bank.CreateAccount("My saving", "test@test.com", TypeOfAccounts.Savings);
 
-            Console.WriteLine($"AN:{mySecondAccount.AccountNumber}, Name :{mySecondAccount.AccountName}, Email:{mySecondAccount.EmailAdress}, AccountType : {mySecondAccount.AccountType}, Balance: {mySecondAccount.Balance:C}, CD:{mySecondAccount.CreatedDate}");
+            //Console.WriteLine($"AN:{mySecondAccount.AccountNumber}, Name :{mySecondAccount.AccountName}, Email:{mySecondAccount.EmailAdress}, AccountType : {mySecondAccount.AccountType}, Balance: {mySecondAccount.Balance:C}, CD:{mySecondAccount.CreatedDate}");
 
 
 
@@ -49,7 +49,17 @@ namespace BankApp
             //var myThirdAccount = new Account();
             var myThirdAccount = Bank.CreateAccount("My scd", "test@test.com", TypeOfAccounts.CD);
 
-            Console.WriteLine($"AN:{myThirdAccount.AccountNumber}, Name :{myThirdAccount.AccountName}, Email:{myThirdAccount.EmailAdress}, AccountType : {myThirdAccount.AccountType}, Balance: {myThirdAccount.Balance:C}, CD:{myThirdAccount.CreatedDate}");
+            //Console.WriteLine($"AN:{myThirdAccount.AccountNumber}, Name :{myThirdAccount.AccountName}, Email:{myThirdAccount.EmailAdress}, AccountType : {myThirdAccount.AccountType}, Balance: {myThirdAccount.Balance:C}, CD:{myThirdAccount.CreatedDate}");
+
+            Bank.Deposit(2, 1000);//successfully completed able to locate the account and put the money 
+            var accounts = Bank.GetAccounts(); // ask bank to get all accounts
+            foreach (var account in accounts)// start from first and go through from start to end loop and print
+            {
+                Console.WriteLine($"AN:{account.AccountNumber}, Name :{account.AccountName}, Email:{account.EmailAdress}, AccountType : {account.AccountType}, Balance: {account.Balance:C}, CD:{account.CreatedDate}");
+            }
+            Bank.Deposit(123, 1000);//invalid
+
+
         }
     }
 }
