@@ -6,7 +6,7 @@ namespace BankApp
 {
      static class Bank
     {
-        private static List<Transaction> transactions = new List<Transaction>();
+        private static List<Transaction> transactions = new List<Transaction>(); //temp storage
         private static List<Account> accounts = new List<Account>();
     /// <summary>
     /// create an account with the bank
@@ -68,8 +68,8 @@ namespace BankApp
                     AccountNumber = accountNumber
 
                 };
-            transaction.Add(transaction);
-
+            transactions.Add(transaction);
+            
 
 
 

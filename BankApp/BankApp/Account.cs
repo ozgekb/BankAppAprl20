@@ -18,7 +18,7 @@ namespace BankApp
     class Account
     {
         //private int lastAccountNumber = 0; to generate account number its local its need to be global to accesible to from all instance
-        private static int lastAccountNumber = 0;// we put static to make global 
+        //private static int lastAccountNumber = 0;// we put static to make global // no need after we create database
         #region Properties
         /// <summary>
         /// this property
@@ -46,7 +46,7 @@ namespace BankApp
             //lastAccountNumber++; 36 and 37 line yerine 39 . line only
             //AccountNumber = lastAccountNumber;
             //AccountNumber = lastAccountNumber++; if we do after incrementing the first account will be 0 because we assigned lastaccount number =0 from begining so that we use preincrementing
-            AccountNumber = ++lastAccountNumber;
+            //AccountNumber = ++lastAccountNumber;  we dont need this anymore because we instruct to database to automaticly generate account number
             CreatedDate = DateTime.Now;
 
         }

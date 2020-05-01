@@ -57,7 +57,7 @@ namespace BankApp
             {
                 Console.WriteLine($"AN:{account.AccountNumber}, Name :{account.AccountName}, Email:{account.EmailAdress}, AccountType : {account.AccountType}, Balance: {account.Balance:C}, CD:{account.CreatedDate}");
             }
-            Bank.Deposit(123, 1000);//invalid
+           // Bank.Deposit(123, 1000);//invalid
 
 
         }
