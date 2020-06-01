@@ -6,8 +6,9 @@ namespace BankApp
 {
      static class Bank
     {
-        private static List<Transaction> transactions = new List<Transaction>(); //temp storage
-        private static List<Account> accounts = new List<Account>();
+        private static BankContext db = new BankContext();//creating new connection to database
+        //private static List<Transaction> transactions = new List<Transaction>(); //temp storage we dont need this temp storage anymore because we created database
+       // private static List<Account> accounts = new List<Account>();
     /// <summary>
     /// create an account with the bank
     /// </summary>
@@ -23,14 +24,15 @@ namespace BankApp
                 EmailAdress = emailAddress,
                 AccountType = accountType
             };
-            accounts.Add(account);
-           
+            // accounts.Add(account); no need this column because we will add to database in the below
+            db.Accounts.Add(account);
+            db.SaveChanges();
             return account;
         }
 
         public static IEnumerable<Account> GetAccounts()
         {
-            return accounts;
+            return db.Accounts;
         }
 
         public static void Deposit(int accountNumber,decimal amount)
@@ -51,7 +53,7 @@ namespace BankApp
             //LINQ same with foreach 
             //accounts.Where(account=>account.AccountNumber == accountNumber); // might bring more than one same number(account number)
 
-            var account =accounts.SingleOrDefault(account => account.AccountNumber == accountNumber);
+            var account = db.Accounts.SingleOrDefault(account => account.AccountNumber == accountNumber);
             //Deposit on the account
             if (account == null)
                 return;
@@ -68,12 +70,9 @@ namespace BankApp
                     AccountNumber = accountNumber
 
                 };
-            transactions.Add(transaction);
-            
-
-
-
-
+            db.Transactions.Add(transaction);
+            db.SaveChanges();
+            Console.WriteLine("Deposit successfully completed!");
 
         }   
     }
